@@ -9,10 +9,11 @@ module.exports = {
       who: "Vue and Webpack !!",
     };
   },
+  created() {},
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .hello {
   padding: 0.5em;
   font-size: 2em;
