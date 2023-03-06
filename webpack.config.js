@@ -36,7 +36,14 @@ module.exports = {
                 test: /\.scss$/,
                 use: [
                     'vue-style-loader',
-                    'css-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                localIdentName: '[path][name]__[local]-[hash:base64:5]'
+                            }
+                        }
+                    },
                     'sass-loader'
                 ]
             },
@@ -52,7 +59,7 @@ module.exports = {
                             // enable CSS Modules
                             modules: {
                                 // customize generated class names
-                                localIdentName: '[path]_[hash:base64:8]'
+                                localIdentName: '[name]__[local]___[hash:base64:5]'
                             }
                         }
                     },

@@ -1,5 +1,8 @@
 <template>
-  <div class="hello">Hello {{ who }}</div>
+  <div :class="$style.hello">
+    Hello {{ who }}
+    <h3 :class="$style.title">123</h3>
+  </div>
 </template>
 
 <script>
@@ -9,14 +12,20 @@ module.exports = {
       who: "Vue and Webpack !!",
     };
   },
-  created() {},
+  mounted() {
+    console.log(this.$style);
+  },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" module scoped>
 .hello {
   padding: 0.5em;
   font-size: 2em;
   background-color: #fcf;
+
+  .title {
+    color: red;
+  }
 }
 </style>
