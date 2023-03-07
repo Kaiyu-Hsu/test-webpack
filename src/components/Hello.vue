@@ -2,6 +2,8 @@
   <div :class="$style.hello">
     Hello {{ who }}
     <h3 :class="$style.title">123</h3>
+    <!-- test element-ui style -->
+    <!-- <el-button>click it</el-button> -->
   </div>
 </template>
 
