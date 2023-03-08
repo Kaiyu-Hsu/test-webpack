@@ -81,6 +81,9 @@ module.exports = {
     resolve: {
         alias: {
             'vue': 'vue/dist/vue.js',
-        }
+        },
+        fallback: {
+            path: require.resolve('path-browserify')
+        },
     }
 };
