@@ -8,8 +8,12 @@
 </template>
 
 <script>
-module.exports = {
-  data: function () {
+export default {
+  name: "Hello",
+  components: {
+    PageTable,
+  },
+  data() {
     return {
       who: "Vue and Webpack !!",
     };
