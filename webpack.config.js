@@ -1,6 +1,19 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-// const compiler = require('vue-template-compiler')
+
+const cssLoaderOptions = {
+    modules: {
+        localIdentName: '[path][name]__[local]-[hash:base64:5]',
+        getLocalIdent: (context, localIdentName, localName, options) => {
+            // `context` 是 CSS 文件的上下文，例如文件路径
+            // `localIdentName` 是预设的类名名称
+            // `localName` 是实际的类名
+            // `options` 是 CSS Loader 的选项
+
+            // return // hash 化後的 id
+        },
+    }
+}
 
 module.exports = {
     entry: './src/index.js',
@@ -18,13 +31,6 @@ module.exports = {
             {
                 test: /\.vue$/, // 哪些模組要使用
                 loader: 'vue-loader', // 要做哪些處理
-                options: {
-                    compilerModules: [
-                        // compiler.compile(template:'Hello',
-                        // opitons:{})
-                    ], // vue-template-compiler modules options
-                    // compilerDirectives: {}, // vue-template-compiler directives options
-                }
             },
             // this will apply to both plain `.js` files
             // AND `<script>` blocks in `.vue` files
@@ -38,11 +44,7 @@ module.exports = {
                     'vue-style-loader',
                     {
                         loader: 'css-loader',
-                        options: {
-                            modules: {
-                                localIdentName: '[path][name]__[local]-[hash:base64:5]'
-                            }
-                        }
+                        options: cssLoaderOptions
                     },
                     'sass-loader'
                 ]
